@@ -7,8 +7,8 @@
 </head>
 <body>
 
-<c:forEach items="${testVoList}" var="testVo" varStatus="status">
-	<P>${testVo.code}</P>
+<c:forEach items="${codeTestVoList}" var="codeTestVo" varStatus="status">
+	<P>${codeTestVo.code}</P>
 </c:forEach>
 
 <script type="text/javascript">
