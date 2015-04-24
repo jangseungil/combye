@@ -6,5 +6,5 @@ import java.util.List;
 import com.ctart.app.test.vo.TestVo;
 
 public interface TestDao {
-	public List<TestVo> test() throws SQLException;
+	public List<TestVo> selectCodeList() throws SQLException;
 }

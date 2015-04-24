@@ -17,9 +17,8 @@ public class TestDaoImpl implements TestDao {
     private SqlSession sqlSession;
 	
 	@Override
-	public List<TestVo> test() throws SQLException {
+	public List<TestVo> selectCodeList() throws SQLException {
 		List<TestVo> testVoList = sqlSession.selectList("test.selectCodeList");
-
 		return testVoList;
 	}
 
