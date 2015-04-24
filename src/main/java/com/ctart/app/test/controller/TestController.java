@@ -4,6 +4,9 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.Locale;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,7 +35,7 @@ public class TestController {
 	 * @throws SQLException 
 	 */
 	@RequestMapping(value = "", method = RequestMethod.GET)
-	public String test(Locale locale, Model model) throws SQLException {
+	public String test(Locale locale, Model model, HttpServletRequest request, HttpServletResponse response) throws SQLException {
 		logger.info("Welcome home! The client locale is {}.", locale);
 		
 		List<TestVo> testVoList = testService.selectCodeList();
@@ -40,7 +43,6 @@ public class TestController {
 		model.addAttribute("testVoList", testVoList);
 		
 		for(TestVo testVo : testVoList) {
-			System.out.println(testVo.getCode());
 		}
 		
 		return "test/test";
