@@ -7,8 +7,6 @@
 </head>
 <body>
 
-<<<<<<< HEAD
-
 
 <div class="panel panel-default">
 	<!-- Default panel contents -->
@@ -59,11 +57,6 @@
 		</tbody>
 	</table>
 </div>
-=======
-<c:forEach items="${userTestVoList}" var="userTestVo" varStatus="status">
-	<P>${userTestVo.seq}</P>
-</c:forEach>
->>>>>>> branch 'master' of git@192.168.110.107:ctart.git
 
 <script type="text/javascript">
 </script>

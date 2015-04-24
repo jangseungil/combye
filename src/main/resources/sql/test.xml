@@ -1,8 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="test">
-    <select id="selectCodeList" resultType="com.ctart.app.test.vo.TestVo">
-        SELECT *
-          FROM code
+
+    <select id="selectCodeList" resultType="com.ctart.app.test.code.vo.CodeTestVo">
+		SELECT CODE
+			 , GRP_CODE
+			 , CODE_NM
+			 , REF_CODE1
+			 , REF_CODE2
+			 , REF_CODE3
+			 , REG_DATE
+			 , MOD_DATE
+		FROM code
     </select>
+    
+    <select id="selectUserList" resultType="com.ctart.app.test.user.vo.UserTestVo">
+		SELECT SEQ
+			 , TYPE
+			 , NAME
+			 , SEX
+			 , BIRTH
+			 , PHONE
+			 , ZIPCODE
+			 , ADDRESS
+			 , REG_DATE
+			 , CNF_YN
+			 , LEAVE_YN
+		FROM user
+    </select>
+    
+    <select id="selectUser" parameterType="com.ctart.app.test.user.vo.UserTestVo" resultType="com.ctart.app.test.user.vo.UserTestVo">
+		SELECT SEQ
+			 , TYPE
+			 , NAME
+			 , SEX
+			 , BIRTH
+			 , PHONE
+			 , ZIPCODE
+			 , ADDRESS
+			 , REG_DATE
+			 , CNF_YN
+			 , LEAVE_YN
+		FROM user
+		WHERE SEQ = #{seq}
+    </select>
+    
+    <select id="updateUser" parameterType="com.ctart.app.test.user.vo.UserTestVo" resultType="integer">
+		UPDATE user SET
+			, TYPE = #{type}
+		 	, NAME = #{name}
+		    , SEX = #{sex}
+		  	, BIRTH = #{birth}
+		  	, PHONE = #{phone}
+		  	, ZIPCODE = #{zipcode}
+		  	, ADDRESS = #{address}
+		WHERE SEQ = #{seq}
+    </select>
+    
+    <select id="insertUser" parameterType="com.ctart.app.test.user.vo.UserTestVo" resultType="integer">
+    </select>
+    
 </mapper>
