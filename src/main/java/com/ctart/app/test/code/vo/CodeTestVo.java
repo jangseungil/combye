@@ -1,6 +1,6 @@
-package com.ctart.app.test.vo;
+package com.ctart.app.test.code.vo;
 
-public class TestVo {
+public class CodeTestVo {
 
 	private String code;
 

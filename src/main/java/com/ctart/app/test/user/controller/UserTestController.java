@@ -1,4 +1,4 @@
-package com.ctart.app.test.controller;
+package com.ctart.app.test.user.controller;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -15,20 +15,20 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.ctart.app.test.service.TestService;
-import com.ctart.app.test.vo.TestVo;
+import com.ctart.app.test.user.service.UserTestService;
+import com.ctart.app.test.user.vo.UserTestVo;
 
 /**
- * TestController.java
+ * 사용자 테스트 컨트롤러
  */
 @Controller
-@RequestMapping(value = "test")
-public class TestController {
+@RequestMapping(value = "test/user")
+public class UserTestController {
 	
-	private static final Logger logger = LoggerFactory.getLogger(TestController.class);
+	private static final Logger logger = LoggerFactory.getLogger(UserTestController.class);
 	
 	@Autowired
-	private TestService testService;
+	private UserTestService userTestService;
 	
 	/**
 	 * select test
@@ -36,16 +36,11 @@ public class TestController {
 	 */
 	@RequestMapping(value = "", method = RequestMethod.GET)
 	public String test(Locale locale, Model model, HttpServletRequest request, HttpServletResponse response) throws SQLException {
-		logger.info("Welcome home! The client locale is {}.", locale);
+		List<UserTestVo> userTestVoList = userTestService.selectUserList();
 		
-		List<TestVo> testVoList = testService.selectCodeList();
+		model.addAttribute("userTestVoList", userTestVoList);
 		
-		model.addAttribute("testVoList", testVoList);
-		
-		for(TestVo testVo : testVoList) {
-		}
-		
-		return "test/test";
+		return "test/user/testuser";
 	}
 	
 }
