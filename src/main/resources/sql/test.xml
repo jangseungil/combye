@@ -47,7 +47,7 @@
     
     <select id="updateUser" parameterType="com.ctart.app.test.user.vo.UserTestVo" resultType="integer">
 		UPDATE user SET
-			, TYPE = #{type}
+			  TYPE = #{type}
 		 	, NAME = #{name}
 		    , SEX = #{sex}
 		  	, BIRTH = #{birth}

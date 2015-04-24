@@ -87,7 +87,7 @@ public class UserTestController {
 		userTestService.updateUser(userTestVo);
 		
 		
-		return "redirect:test/user/" + seq;
+		return "redirect:";
 
 	}
 	
