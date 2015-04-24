@@ -82,7 +82,7 @@ public class UserTestController {
 	 * @throws SQLException 
 	 */
 	@RequestMapping(value = "/{seq}/update", method = RequestMethod.POST)
-	public String updateUser(@PathVariable("seq") String seq, UserTestVo userTestVo, Model model, HttpServletRequest request, HttpServletResponse response) throws SQLException {
+	public String updateUser(@PathVariable("seq") String seq, @ModelAttribute UserTestVo userTestVo, Model model, HttpServletRequest request, HttpServletResponse response) throws SQLException {
 		
 		userTestService.updateUser(userTestVo);
 		

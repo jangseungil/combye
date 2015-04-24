@@ -20,6 +20,7 @@ public class UserTestDaoImpl implements UserTestDao {
 	public List<UserTestVo> selectUserList() throws SQLException {
 		return sqlSession.selectList("test.selectUserList");
 	}
+<<<<<<< HEAD
 	
 	@Override
 	public UserTestVo selectUser(UserTestVo userTestVo) throws SQLException {
@@ -35,5 +36,7 @@ public class UserTestDaoImpl implements UserTestDao {
 	public int insertUser(UserTestVo userTestVo) throws SQLException {
 		return sqlSession.insert("test.insertUser", userTestVo);
 	}
+=======
+>>>>>>> branch 'master' of git@192.168.110.107:ctart.git
 
 }

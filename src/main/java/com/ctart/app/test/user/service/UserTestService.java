@@ -18,6 +18,7 @@ public class UserTestService {
 	public List<UserTestVo> selectUserList() throws SQLException {
 		return testDao.selectUserList();
 	}
+<<<<<<< HEAD
 	
 	public UserTestVo selectUser(UserTestVo userTestVo) throws SQLException {
 		return testDao.selectUser(userTestVo);
@@ -30,4 +31,6 @@ public class UserTestService {
 	public void insertUser(UserTestVo userTestVo) throws SQLException {
 		int result = testDao.insertUser(userTestVo);
 	}
+=======
+>>>>>>> branch 'master' of git@192.168.110.107:ctart.git
 }
