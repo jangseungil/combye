@@ -7,6 +7,9 @@
 </head>
 <body>
 
+<jsp:include page="/WEB-INF/views/test/common/navbar.jsp">
+	<jsp:param name="tab" value="test"/>
+</jsp:include>
 
 <div class="panel panel-default">
 	<!-- Default panel contents -->

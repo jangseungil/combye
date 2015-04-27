@@ -17,8 +17,8 @@ public class UserTestDaoImpl implements UserTestDao {
     private SqlSession sqlSession;
 	
 	@Override
-	public List<UserTestVo> selectUserList() throws SQLException {
-		return sqlSession.selectList("test.selectUserList");
+	public List<UserTestVo> selectUserList(UserTestVo userTestVo) throws SQLException {
+		return sqlSession.selectList("test.selectUserList", userTestVo);
 	}
 	
 	@Override

@@ -7,7 +7,9 @@
 </head>
 <body>
 
-
+<jsp:include page="/WEB-INF/views/test/common/navbar.jsp">
+	<jsp:param name="tab" value="test"/>
+</jsp:include>
 
 <form action="/test/user/${userTestVo.seq}/update" method="post" >
 	<div class="panel panel-default">

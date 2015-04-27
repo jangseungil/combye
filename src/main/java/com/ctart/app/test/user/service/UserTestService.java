@@ -15,8 +15,8 @@ public class UserTestService {
 	@Autowired
 	private UserTestDao testDao;
 	
-	public List<UserTestVo> selectUserList() throws SQLException {
-		return testDao.selectUserList();
+	public List<UserTestVo> selectUserList(UserTestVo userTestVo) throws SQLException {
+		return testDao.selectUserList(userTestVo);
 	}
 	
 	public UserTestVo selectUser(UserTestVo userTestVo) throws SQLException {

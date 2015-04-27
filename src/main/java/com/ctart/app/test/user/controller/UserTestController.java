@@ -37,14 +37,10 @@ public class UserTestController {
 	 * @throws SQLException 
 	 */
 	@RequestMapping(value = "", method = RequestMethod.GET)
-	public String selectUserList(Locale locale, Model model, HttpServletRequest request, HttpServletResponse response) throws SQLException {
-		List<UserTestVo> userTestVoList = userTestService.selectUserList();
+	public String selectUserList(Locale locale, Model model, UserTestVo userTestVo) throws SQLException {
+		List<UserTestVo> userTestVoList = userTestService.selectUserList(userTestVo);
 		
 		model.addAttribute("userTestVoList", userTestVoList);
-		
-		for(UserTestVo userTestVo: userTestVoList) {
-			System.out.println(userTestVo.getRegDate());
-		}
 		
 		return "test/user/testuserlist";
 	}

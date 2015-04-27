@@ -14,7 +14,7 @@
 		FROM code
     </select>
     
-    <select id="selectUserList" resultType="com.ctart.app.test.user.vo.UserTestVo">
+    <select id="selectUserList" parameterType="com.ctart.app.test.user.vo.UserTestVo" resultType="com.ctart.app.test.user.vo.UserTestVo">
 		SELECT SEQ
 			 , TYPE
 			 , NAME
@@ -27,6 +27,10 @@
 			 , CNF_YN
 			 , LEAVE_YN
 		FROM user
+		WHERE 1=1
+		<if test="name != null and name != ''">
+			AND NAME LIKE CONCAT('%', #{name}, '%')
+		</if>
     </select>
     
     <select id="selectUser" parameterType="com.ctart.app.test.user.vo.UserTestVo" resultType="com.ctart.app.test.user.vo.UserTestVo">
