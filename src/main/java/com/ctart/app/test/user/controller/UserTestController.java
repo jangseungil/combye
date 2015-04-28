@@ -14,8 +14,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.ctart.app.test.user.service.UserTestService;
@@ -51,11 +53,14 @@ public class UserTestController {
 	 * 사용자 리스트(json)
 	 * @throws SQLException 
 	 */
-	@RequestMapping(value = "/json", method = RequestMethod.GET)
-	public @ResponseBody List<UserTestVo> selectUserListJSON(Locale locale, Model model, UserTestVo userTestVo) throws SQLException {
+	@RequestMapping(value = "/json", method = RequestMethod.POST)
+	public @ResponseBody List<UserTestVo> selectUserListJSON(@RequestBody UserTestVo userTestVo) throws SQLException {
+		
+		System.out.println(userTestVo.getName());
+		
 		List<UserTestVo> userTestVoList = userTestService.selectUserList(userTestVo);
 		
-		model.addAttribute("userTestVoList", userTestVoList);
+		
 		
 		return userTestVoList;
 	}

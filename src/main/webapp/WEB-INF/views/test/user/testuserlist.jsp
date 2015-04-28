@@ -6,35 +6,36 @@
 	<title>Test</title>
 <script>
 var helloApp = angular.module("helloApp", []);
-	  
+
 helloApp.controller('CompanyCtrl', ['$scope',  '$http', function ($scope, $http) {
 	
-	  // 사용자 객체를 생성
-	  $scope.user = {};
+	 // 사용자 객체를 생성
+	$scope.users = {};
 
-	  // 빈 문자열로 초기화
-	  $scope.user.name = 'blank';
+	$scope.name = '';
+	
+	$scope.search = function(){		
+		$http({
+			method: 'POST',
+			url: '/test/user/json',
+			data: {name: $scope.name}
+		})
+		.success(function (data, status, headers, config) {
+			$scope.users = data;
+		})
+		.error(function (data, status, headers, config) {
+	
+		});
+	};
+	
+	$scope.search();
 	  
-	  $http({
-	    method: 'GET',
-	    url: '/test/user/json'
-	  })
-	  .success(function (data, status, headers, config) {
-	    // 성공! 데이터를 가져왔어
-	  })
-	  .error(function (data, status, headers, config) {
-	    // 이런. 뭔가 잘못되었음! :(
-	  });
 	}]);
+	
 </script>
 </head>
 
 <body ng-controller="CompanyCtrl">
-
-<div>
-  <p>{{ user.name }}</p>
-</div>
-
 
 <jsp:include page="/WEB-INF/views/test/common/navbar.jsp">
 	<jsp:param name="tab" value="test"/>
@@ -48,12 +49,12 @@ helloApp.controller('CompanyCtrl', ['$scope',  '$http', function ($scope, $http)
 		<p>사용자 관리 테스트 페이지 입니다.</p>
 	</div>
 	
-	<form class="navbar-form navbar-right" role="search" action="/test/user">
+	<div class="navbar-form navbar-right">
 		<div class="form-group">
-			<input type="text" name="name" class="form-control" placeholder="Search by name.." value="${param.name}">
+			<input type="text" name="name" class="form-control" placeholder="Search by name.." ng-model="name" ng-change="search()"> 
 		</div>
-		<button type="submit" class="btn btn-default">Submit</button>
-	</form>
+		<button type="submit" class="btn btn-default" ng-click="search()">Submit</button>
+	</div>
 	
 	<!-- Table -->
 	<table class="table">
@@ -86,30 +87,22 @@ helloApp.controller('CompanyCtrl', ['$scope',  '$http', function ($scope, $http)
 			</tr>
 		</thead>
 		<tbody>
-			<c:choose>
-				<c:when test="${not empty userTestVoList}">
-					<c:forEach items="${userTestVoList}" var="userTestVo" varStatus="status">
-						<tr>
-							<td><a href="/test/user/${userTestVo.seq}">${userTestVo.seq}</a></td>
-							<td>${userTestVo.type}</td>
-							<td>${userTestVo.name}</td>
-							<td>${userTestVo.sex}</td>
-							<td>${userTestVo.birth}</td>
-							<td>${userTestVo.phone}</td>
-							<td>${userTestVo.zipcode}</td>
-							<td>${userTestVo.address}</td>
-							<td>${userTestVo.regDate}</td>
-							<td>${userTestVo.cnfYn}</td>
-							<td>${userTestVo.leaveYn}</td>
-						</tr>
-					</c:forEach>
-				</c:when>
-				<c:otherwise>
-					<tr>
-						<td colspan="11" class="text-center">검색 결과가 없습니다.</td>
-					</tr>
-				</c:otherwise>
-			</c:choose>
+			<tr ng-repeat="userTestVo in users">
+				<td><a href="/test/user/{{userTestVo.seq}}">{{userTestVo.seq}}</a></td>
+				<td>{{userTestVo.type}}</td>
+				<td>{{userTestVo.name}}</td>
+				<td>{{userTestVo.sex}}</td>
+				<td>{{userTestVo.birth}}</td>
+				<td>{{userTestVo.phone}}</td>
+				<td>{{userTestVo.zipcode}}</td>
+				<td>{{userTestVo.address}}</td>
+				<td>{{userTestVo.regDate}}</td>
+				<td>{{userTestVo.cnfYn}}</td>
+				<td>{{userTestVo.leaveYn}}</td>
+			</tr>
+			<tr ng-show="!users.length">
+				<td colspan="11" class="text-center">검색 결과가 없습니다.</td>
+			</tr>
 		</tbody>
 	</table>
 </div>
