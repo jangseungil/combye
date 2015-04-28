@@ -13,7 +13,7 @@ public interface UserTestDao {
 	
 	public UserTestVo selectUser(UserTestVo userTestVo) throws SQLException;
 	
-	public int updateUser(UserTestVo userTestVo) throws SQLException;
+	public void updateUser(UserTestVo userTestVo) throws SQLException;
 
-	public int insertUser(UserTestVo userTestVo) throws SQLException;
+	public void insertUser(UserTestVo userTestVo) throws SQLException;
 }

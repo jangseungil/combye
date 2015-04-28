@@ -5,15 +5,20 @@
 <head>
 	<title>Test</title>
 <script>
+//app 선언 app명 helloApp
 var helloApp = angular.module("helloApp", []);
 
+//controller 선언 controller명 CompanyCtrl
 helloApp.controller('CompanyCtrl', ['$scope',  '$http', function ($scope, $http) {
 	
 	 // 사용자 객체를 생성
 	$scope.users = {};
-
+	
+	// ''으로 초기화
 	$scope.name = '';
 	
+	//seach function 선언 
+	//input text와 intput button에 ng-change, ng-click 디렉티브를 설정하여 호출하도록 함  
 	$scope.search = function(){		
 		$http({
 			method: 'POST',
@@ -21,16 +26,18 @@ helloApp.controller('CompanyCtrl', ['$scope',  '$http', function ($scope, $http)
 			data: {name: $scope.name}
 		})
 		.success(function (data, status, headers, config) {
+			//sever로부터 넘어온 json data를 users 객체에 binding
 			$scope.users = data;
 		})
 		.error(function (data, status, headers, config) {
-	
+			
 		});
 	};
 	
+	//페이지최초 로딩시 search 실행
 	$scope.search();
 	  
-	}]);
+}]);
 	
 </script>
 </head>
@@ -53,7 +60,7 @@ helloApp.controller('CompanyCtrl', ['$scope',  '$http', function ($scope, $http)
 		<div class="form-group">
 			<input type="text" name="name" class="form-control" placeholder="Search by name.." ng-model="name" ng-change="search()"> 
 		</div>
-		<button type="submit" class="btn btn-default" ng-click="search()">Submit</button>
+		<button type="button" class="btn btn-default" ng-click="search()">Submit</button>
 	</div>
 	
 	<!-- Table -->

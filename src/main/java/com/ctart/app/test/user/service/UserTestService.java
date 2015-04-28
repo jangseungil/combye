@@ -25,10 +25,10 @@ public class UserTestService {
 	}
 	
 	public void updateUser(UserTestVo userTestVo) throws SQLException {
-		int result = testDao.updateUser(userTestVo);
+		testDao.updateUser(userTestVo);
 	}
 	
 	public void insertUser(UserTestVo userTestVo) throws SQLException {
-		int result = testDao.insertUser(userTestVo);
+		testDao.insertUser(userTestVo);
 	}
 }

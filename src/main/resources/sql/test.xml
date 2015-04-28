@@ -49,7 +49,7 @@
 		WHERE SEQ = #{seq}
     </select>
     
-    <select id="updateUser" parameterType="com.ctart.app.test.user.vo.UserTestVo" resultType="integer">
+    <select id="updateUser" parameterType="com.ctart.app.test.user.vo.UserTestVo" >
 		UPDATE user SET
 			  TYPE = #{type}
 		 	, NAME = #{name}
@@ -61,7 +61,7 @@
 		WHERE SEQ = #{seq}
     </select>
     
-    <select id="insertUser" parameterType="com.ctart.app.test.user.vo.UserTestVo" resultType="integer">
+    <select id="insertUser" parameterType="com.ctart.app.test.user.vo.UserTestVo">
     </select>
     
 </mapper>
