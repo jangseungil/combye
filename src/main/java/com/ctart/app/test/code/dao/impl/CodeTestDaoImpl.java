@@ -11,12 +11,11 @@ import com.ctart.app.test.code.dao.CodeTestDao;
 import com.ctart.app.test.code.vo.CodeTestVo;
 
 @Repository
-public class CodeTestDaoImpl implements CodeTestDao {
+public class CodeTestDaoImpl   {
 	
 	@Autowired
     private SqlSession sqlSession;
 	
-	@Override
 	public List<CodeTestVo> selectCodeList() throws SQLException {
 		return sqlSession.selectList("test.selectCodeList");
 	}

@@ -1,11 +1,39 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <jsp:include page="/WEB-INF/views/common/common.jsp"/>
-<html ng-app>
+<html ng-app="helloApp">
 <head>
 	<title>Test</title>
+<script>
+var helloApp = angular.module("helloApp", []);
+	  
+helloApp.controller('CompanyCtrl', ['$scope',  '$http', function ($scope, $http) {
+	
+	  // 사용자 객체를 생성
+	  $scope.user = {};
+
+	  // 빈 문자열로 초기화
+	  $scope.user.name = 'blank';
+	  
+	  $http({
+	    method: 'GET',
+	    url: '/test/user/json'
+	  })
+	  .success(function (data, status, headers, config) {
+	    // 성공! 데이터를 가져왔어
+	  })
+	  .error(function (data, status, headers, config) {
+	    // 이런. 뭔가 잘못되었음! :(
+	  });
+	}]);
+</script>
 </head>
-<body>
+
+<body ng-controller="CompanyCtrl">
+
+<div>
+  <p>{{ user.name }}</p>
+</div>
 
 
 <jsp:include page="/WEB-INF/views/test/common/navbar.jsp">

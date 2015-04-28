@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.ctart.app.test.user.service.UserTestService;
 import com.ctart.app.test.user.vo.UserTestVo;
@@ -43,6 +44,20 @@ public class UserTestController {
 		model.addAttribute("userTestVoList", userTestVoList);
 		
 		return "test/user/testuserlist";
+	}
+	
+	
+	/**
+	 * 사용자 리스트(json)
+	 * @throws SQLException 
+	 */
+	@RequestMapping(value = "/json", method = RequestMethod.GET)
+	public @ResponseBody List<UserTestVo> selectUserListJSON(Locale locale, Model model, UserTestVo userTestVo) throws SQLException {
+		List<UserTestVo> userTestVoList = userTestService.selectUserList(userTestVo);
+		
+		model.addAttribute("userTestVoList", userTestVoList);
+		
+		return userTestVoList;
 	}
 	
 	/**
