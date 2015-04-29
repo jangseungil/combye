@@ -1,5 +1,6 @@
 package com.ctart.app.test.user.vo;
 
+
 public class UserTestVo {
 
 	private String seq;

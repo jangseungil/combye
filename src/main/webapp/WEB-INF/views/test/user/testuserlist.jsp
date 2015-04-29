@@ -38,6 +38,20 @@ helloApp.controller('CompanyCtrl', ['$scope',  '$http', function ($scope, $http)
 	$scope.search();
 	  
 }]);
+
+helloApp.directive('ngEnter', function () {
+    return function (scope, element, attrs) {
+        element.bind("keydown keypress", function (event) {
+            if(event.which === 13) {
+                scope.$apply(function (){
+                    scope.$eval(attrs.ngEnter);
+                });
+ 
+                event.preventDefault();
+            }
+        });
+    };
+});
 	
 </script>
 </head>
@@ -58,7 +72,7 @@ helloApp.controller('CompanyCtrl', ['$scope',  '$http', function ($scope, $http)
 	
 	<div class="navbar-form navbar-right">
 		<div class="form-group">
-			<input type="text" name="name" class="form-control" placeholder="Search by name.." ng-model="name" ng-change="search()"> 
+			<input type="text" name="name" class="form-control" placeholder="Search by name.." ng-model="name" ng-enter="search()"> 
 		</div>
 		<button type="button" class="btn btn-default" ng-click="search()">Submit</button>
 	</div>
