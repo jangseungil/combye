@@ -119,7 +119,7 @@ helloApp.directive('ngEnter', function () {
 				<td>{{userTestVo.address}}</td>
 				<td>{{userTestVo.regDate}}</td>
 				<td>{{userTestVo.cnfYn}}</td>
-				<td>{{userTestVo.leaveYn}}</td>
+				<td>{{userTestVo.leaveYn}}</td> 
 			</tr>
 			<tr ng-show="!users.length">
 				<td colspan="11" class="text-center">검색 결과가 없습니다.</td>
