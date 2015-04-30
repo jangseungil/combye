@@ -11,6 +11,7 @@ import com.ctart.app.test.user.dao.UserTestDao;
 import com.ctart.app.test.user.vo.UserTestVo;
 
 @Service
+@Transactional
 public class UserTestService {
 	
 	@Autowired

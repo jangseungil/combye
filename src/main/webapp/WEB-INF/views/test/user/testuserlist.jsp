@@ -4,7 +4,81 @@
 <html ng-app="helloApp">
 <head>
 	<title>Test</title>
-<script>
+</head>
+
+<body ng-controller="CompanyCtrl">
+
+<jsp:include page="/WEB-INF/views/test/common/navbar.jsp">
+	<jsp:param name="tab" value="test"/>
+</jsp:include>
+
+
+<div class="panel panel-default">
+	<!-- Default panel contents -->
+	<div class="panel-heading">사용자목록</div>
+	<div class="panel-body">
+		<p>사용자 관리 테스트 페이지 입니다.</p>
+	</div>
+	
+	<div class="navbar-form navbar-right">
+		<div class="form-group">
+			<input type="text" name="name" class="form-control" placeholder="Search by name.." ng-model="name" ng-enter="search()"> 
+		</div>
+		<button type="button" class="btn btn-default" ng-click="search()">Submit</button>
+	</div>
+	
+	<!-- Table -->
+	<table class="table">
+		<colgroup>
+			<col width="10%"/>
+			<col width="5%"/>
+			<col width="9%"/>
+			<col width="9%"/>
+			<col width="9%"/>
+			<col width="9%"/>
+			<col width="9%"/>
+			<col width=""/>
+			<col width="7%"/>
+			<col width="7%"/>
+			<col width="7%"/>
+		</colgroup>
+		<thead>
+			<tr>
+				<th>SEQ</th>
+				<th>TYPE</th>
+				<th>NAME</th>
+				<th>SEX</th>
+				<th>BIRTH</th>
+				<th>PHONE</th>
+				<th>ZIPCODE</th>
+				<th>ADDRESS</th>
+				<th>REG_DATE</th>
+				<th>CNF_YN</th>
+				<th>LEAVE_YN</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="userTestVo in users">
+				<td><a href="/test/user/{{userTestVo.seq}}">{{userTestVo.seq}}</a></td>
+				<td>{{userTestVo.type}}</td>
+				<td>{{userTestVo.name}}</td>
+				<td>{{userTestVo.sex}}</td>
+				<td>{{userTestVo.birth}}</td>
+				<td>{{userTestVo.phone}}</td>
+				<td>{{userTestVo.zipcode}}</td>
+				<td>{{userTestVo.address}}</td>
+				<td>{{userTestVo.regDate}}</td>
+				<td>{{userTestVo.cnfYn}}</td>
+				<td>{{userTestVo.leaveYn}}</td> 
+			</tr>
+			<tr ng-show="!users.length">
+				<td colspan="11" class="text-center">검색 결과가 없습니다.</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+<script type="text/javascript">
 //app 선언 app명 helloApp
 var helloApp = angular.module("helloApp", []);
 
@@ -53,81 +127,5 @@ helloApp.directive('ngEnter', function () {
     };
 });
 	
-</script>
-</head>
-
-<body ng-controller="CompanyCtrl">
-
-<jsp:include page="/WEB-INF/views/test/common/navbar.jsp">
-	<jsp:param name="tab" value="test"/>
-</jsp:include>
-
-
-<div class="panel panel-default">
-	<!-- Default panel contents -->
-	<div class="panel-heading">사용자목록</div>
-	<div class="panel-body">
-		<p>사용자 관리 테스트 페이지 입니다.</p>
-	</div>
-	
-	<div class="navbar-form navbar-right">
-		<div class="form-group">
-			<input type="text" name="name" class="form-control" placeholder="Search by name.." ng-model="name" ng-enter="search()"> 
-		</div>
-		<button type="button" class="btn btn-default" ng-click="search()">Submit</button>
-	</div>
-	
-	<!-- Table -->
-	<table class="table">
-		<colgroup>
-			<col width="10%"/>
-			<col width="5%"/>
-			<col width="9%"/>
-			<col width="9%"/>
-			<col width="9%"/>
-			<col width="9%"/>
-			<col width="9%"/>
-			<col width=""/>
-			<col width="7%"/>
-			<col width="7%"/>
-			<col width="7%"/>
-		</colgroup>
-		<thead>
-			<tr>
-				<th>seq</th>
-				<th>type</th>
-				<th>name</th>
-				<th>sex</th>
-				<th>birth</th>
-				<th>phone</th>
-				<th>zipcode</th>
-				<th>address</th>
-				<th>reg_date</th>
-				<th>cnf_yn</th>
-				<th>leave_yn</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr ng-repeat="userTestVo in users">
-				<td><a href="/test/user/{{userTestVo.seq}}">{{userTestVo.seq}}</a></td>
-				<td>{{userTestVo.type}}</td>
-				<td>{{userTestVo.name}}</td>
-				<td>{{userTestVo.sex}}</td>
-				<td>{{userTestVo.birth}}</td>
-				<td>{{userTestVo.phone}}</td>
-				<td>{{userTestVo.zipcode}}</td>
-				<td>{{userTestVo.address}}</td>
-				<td>{{userTestVo.regDate}}</td>
-				<td>{{userTestVo.cnfYn}}</td>
-				<td>{{userTestVo.leaveYn}}</td> 
-			</tr>
-			<tr ng-show="!users.length">
-				<td colspan="11" class="text-center">검색 결과가 없습니다.</td>
-			</tr>
-		</tbody>
-	</table>
-</div>
-
-<script type="text/javascript">
 </script>
 </html>
