@@ -23,7 +23,7 @@ import com.ctart.app.test.user.service.UserTestService;
 import com.ctart.app.test.user.vo.UserTestVo;
 
 /**
- * ì‚¬ìš©ì í…ŒìŠ¤íŠ¸ ì»¨íŠ¸ë¡¤ëŸ¬
+ * »ç¿ëÀÚ Å×½ºÆ® ÄÁÆ®·Ñ·¯
  */
 @Controller
 @RequestMapping(value = "test/user")
@@ -35,7 +35,7 @@ public class UserTestController {
 	private UserTestService userTestService;
 	
 	/**
-	 * ì‚¬ìš©ì ë¦¬ìŠ¤íŠ¸
+	 * »ç¿ëÀÚ ¸®½ºÆ®
 	 * @throws SQLException 
 	 */
 	@RequestMapping(value = "", method = RequestMethod.GET)
@@ -49,7 +49,7 @@ public class UserTestController {
 	
 	
 	/**
-	 * ì‚¬ìš©ì ë¦¬ìŠ¤íŠ¸(json)
+	 * »ç¿ëÀÚ ¸®½ºÆ®(json)
 	 * @throws SQLException 
 	 */
 	@RequestMapping(value = "/json", method = RequestMethod.POST)
@@ -59,7 +59,7 @@ public class UserTestController {
 	}
 	
 	/**
-	 * ì‚¬ìš©ì ìƒì„¸ì¡°íšŒ
+	 * »ç¿ëÀÚ »ó¼¼Á¶È¸
 	 * @throws SQLException 
 	 */
 	@RequestMapping(value = "/{seq}", method = RequestMethod.GET)
@@ -73,7 +73,7 @@ public class UserTestController {
 	}
 	
 	/**
-	 * ì‚¬ìš©ì ìˆ˜ì •í™”ë©´
+	 * »ç¿ëÀÚ ¼öÁ¤È­¸é
 	 * @throws SQLException 
 	 */
 	@RequestMapping(value = "/{seq}/update", method = RequestMethod.GET)
@@ -87,7 +87,7 @@ public class UserTestController {
 	}
 	
 	/**
-	 * ì‚¬ìš©ì ìˆ˜ì •
+	 * »ç¿ëÀÚ ¼öÁ¤
 	 * @throws SQLException 
 	 */
 	@RequestMapping(value = "/{seq}/update", method = RequestMethod.POST)
