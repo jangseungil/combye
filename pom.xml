@@ -217,7 +217,7 @@
 				
 	</dependencies>
 	
- 	  <build>
+	<build>
 	    <finalName>embeddedTomcatSample</finalName>
 	    <plugins>
 	        <plugin>
@@ -243,5 +243,5 @@
 	            </executions>
 	        </plugin>
 	    </plugins>
-	  </build>
+  </build>
 </project>
