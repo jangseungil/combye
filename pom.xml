@@ -5,7 +5,7 @@
 	<groupId>com.ctart</groupId>
 	<artifactId>main</artifactId>
 	<name>ctart</name>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 	<version>1.0.0-BUILD-SNAPSHOT</version>
 	<properties>
 		<java-version>1.8</java-version>
@@ -213,24 +213,13 @@
 	        <groupId>org.apache.tomcat</groupId>
 	        <artifactId>tomcat-jsp-api</artifactId>
 	        <version>${tomcat.version}</version>
-	    </dependency>	
+	    </dependency>
 				
 	</dependencies>
 	
-	  <build>
+ 	  <build>
 	    <finalName>embeddedTomcatSample</finalName>
 	    <plugins>
-	        <plugin>
-	           <groupId>org.apache.maven.plugins</groupId>
-	           <artifactId>maven-compiler-plugin</artifactId>
-	           <version>2.5.1</version>
-	           <inherited>true</inherited>
-	           <configuration>
-	                 <source>1.8</source>
-	                 <target>1.8</target>
-	                 <encoding>UTF-8</encoding>
-	            </configuration>
-	        </plugin>
 	        <plugin>
 	            <groupId>org.codehaus.mojo</groupId>
 	            <artifactId>appassembler-maven-plugin</artifactId>
