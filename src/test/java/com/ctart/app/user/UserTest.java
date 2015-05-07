@@ -32,11 +32,11 @@ public class UserTest {
 		userTestVo = new UserTestVo();
 		userTestVo.setType("C");
 		userTestVo.setSex("1");
-		userTestVo.setName("¹Úµ¿Áø");
+		userTestVo.setName("ì¥ìŠ¹ì¼");
 		userTestVo.setBirth("19850511");
 		userTestVo.setPhone("01032321212");
 		userTestVo.setZipcode("322333");
-		userTestVo.setAddress("¼­¿ï½Ã Á¾·Î±¸ ·Î¾âºôµù");
+		userTestVo.setAddress("ê²½ê¸°ë„ê´‘ëª…ì‹œ");
 	}
 
 	@Test
@@ -44,13 +44,10 @@ public class UserTest {
 		
 		List<UserTestVo> resultVo = userTestService.selectUserList(new UserTestVo());
 		
-		//selectUserList Å×½ºÆ®
 		assertNotNull(resultVo);
 		
-		//selesctUser Å×½ºÆ®
 		assertNotNull(userTestService.selectUser(new UserTestVo(resultVo.get(0).getSeq())));
 		
-		//updateUser Å×½ºÆ®
 		userTestVo.setSeq(resultVo.get(0).getSeq());
 		userTestService.updateUser(userTestVo);
 		UserTestVo updatedVo = userTestService.selectUser(new UserTestVo(resultVo.get(0).getSeq()));
