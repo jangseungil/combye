@@ -3,7 +3,7 @@ package com.ctart.app.test.user.vo;
 
 public class UserTestVo {
 
-	private String seq;
+	private long seq;
 
 	private String type;
 	
@@ -28,15 +28,15 @@ public class UserTestVo {
 	public UserTestVo() {
 	}
 	
-	public UserTestVo(String seq) {
+	public UserTestVo(long seq) {
 		this.seq = seq;
 	}
 
-	public String getSeq() {
+	public long getSeq() {
 		return seq;
 	}
 
-	public void setSeq(String seq) {
+	public void setSeq(long seq) {
 		this.seq = seq;
 	}
 

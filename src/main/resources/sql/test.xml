@@ -15,38 +15,20 @@
     </select>
     
     <select id="selectUserList" parameterType="com.ctart.app.test.user.vo.UserTestVo" resultType="com.ctart.app.test.user.vo.UserTestVo">
-		SELECT SEQ
-			 , TYPE
-			 , NAME
-			 , SEX
-			 , BIRTH
-			 , PHONE
-			 , ZIPCODE
-			 , ADDRESS
-			 , REG_DATE
-			 , CNF_YN
-			 , LEAVE_YN
-		FROM user
+		SELECT "SEQ"
+			, "NAME"
+		FROM "USER"
 		WHERE 1=1
 		<if test="name != null and name != ''">
-			AND NAME LIKE CONCAT('%', #{name}, '%')
+			AND "NAME" LIKE CONCAT('%', #{name}, '%')
 		</if>
     </select>
     
     <select id="selectUser" parameterType="com.ctart.app.test.user.vo.UserTestVo" resultType="com.ctart.app.test.user.vo.UserTestVo">
-		SELECT SEQ
-			 , TYPE
-			 , NAME
-			 , SEX
-			 , BIRTH
-			 , PHONE
-			 , ZIPCODE
-			 , ADDRESS
-			 , REG_DATE
-			 , CNF_YN
-			 , LEAVE_YN
-		FROM user
-		WHERE SEQ = #{seq}
+		SELECT "SEQ"
+			, "NAME"
+		FROM "USER"
+		WHERE "SEQ" = #{seq}
     </select>
     
     <select id="updateUser" parameterType="com.ctart.app.test.user.vo.UserTestVo" >

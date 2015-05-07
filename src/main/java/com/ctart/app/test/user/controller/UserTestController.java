@@ -24,7 +24,7 @@ import com.ctart.app.test.user.service.UserTestService;
 import com.ctart.app.test.user.vo.UserTestVo;
 
 /**
- * »ç¿ëÀÚ Å×½ºÆ® ÄÁÆ®·Ñ·¯
+ * ì‚¬ìš©ì í…ŒìŠ¤íŠ¸ ì»¨íŠ¸ë¡¤ëŸ¬
  */
 @Controller
 @RequestMapping(value = "test/user")
@@ -36,7 +36,7 @@ public class UserTestController {
 	private UserTestService userTestService;
 	
 	/**
-	 * »ç¿ëÀÚ ¸®½ºÆ®
+	 * ì‚¬ìš©ì ë¦¬ìŠ¤íŠ¸
 	 * @throws SQLException 
 	 */
 	@RequestMapping(value = "", method = RequestMethod.GET)
@@ -50,7 +50,7 @@ public class UserTestController {
 	
 	
 	/**
-	 * »ç¿ëÀÚ ¸®½ºÆ®(json)
+	 * ì‚¬ìš©ì ë¦¬ìŠ¤íŠ¸(json)
 	 * @throws SQLException 
 	 */
 	@RequestMapping(value = "/json", method = RequestMethod.POST)
@@ -60,11 +60,11 @@ public class UserTestController {
 	}
 	
 	/**
-	 * »ç¿ëÀÚ »ó¼¼Á¶È¸
+	 * ì‚¬ìš©ì ìƒì„¸ì¡°íšŒ
 	 * @throws SQLException 
 	 */
 	@RequestMapping(value = "/{seq}", method = RequestMethod.GET)
-	public String selectUser(@PathVariable("seq") String seq, Model model, HttpServletRequest request, HttpServletResponse response) throws SQLException {
+	public String selectUser(@PathVariable("seq") long seq, Model model, HttpServletRequest request, HttpServletResponse response) throws SQLException {
 		
 		UserTestVo userTestVo = userTestService.selectUser(new UserTestVo(seq));
 		
@@ -74,11 +74,11 @@ public class UserTestController {
 	}
 	
 	/**
-	 * »ç¿ëÀÚ ¼öÁ¤È­¸é
+	 * ì‚¬ìš©ì ìˆ˜ì •í™”ë©´
 	 * @throws SQLException 
 	 */
 	@RequestMapping(value = "/{seq}/update", method = RequestMethod.GET)
-	public String selectUserUpdate(@PathVariable("seq") String seq, Model model, HttpServletRequest request, HttpServletResponse response) throws SQLException {
+	public String selectUserUpdate(@PathVariable("seq") long seq, Model model, HttpServletRequest request, HttpServletResponse response) throws SQLException {
 		
 		UserTestVo userTestVo = userTestService.selectUser(new UserTestVo(seq));
 		
@@ -88,7 +88,7 @@ public class UserTestController {
 	}
 	
 	/**
-	 * »ç¿ëÀÚ ¼öÁ¤
+	 * ì‚¬ìš©ì ìˆ˜ì •
 	 * @throws SQLException 
 	 */
 	@RequestMapping(value = "/{seq}/update", method = RequestMethod.POST)
