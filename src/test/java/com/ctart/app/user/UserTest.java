@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,6 +41,7 @@ public class UserTest {
 	}
 
 	@Test
+	@Ignore
 	public void user() throws SQLException {
 		
 		List<UserTestVo> resultVo = userTestService.selectUserList(new UserTestVo());
