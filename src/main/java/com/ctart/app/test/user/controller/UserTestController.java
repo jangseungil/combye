@@ -22,8 +22,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.ctart.app.test.user.service.UserTestService;
 import com.ctart.app.test.user.vo.UserTestVo;
 
+
 /**
- * »ç¿ëÀÚ Å×½ºÆ® ÄÁÆ®·Ñ·¯
+ * ì‚¬ìš©ì í…ŒìŠ¤íŠ¸ ì»¨íŠ¸ë¡¤ëŸ¬
  */
 @Controller
 @RequestMapping(value = "test/user")
@@ -35,7 +36,7 @@ public class UserTestController {
 	private UserTestService userTestService;
 	
 	/**
-	 * »ç¿ëÀÚ ¸®½ºÆ®
+	 * ì‚¬ìš©ì ë¦¬ìŠ¤íŠ¸
 	 * @throws SQLException 
 	 */
 	@RequestMapping(value = "", method = RequestMethod.GET)
@@ -49,7 +50,7 @@ public class UserTestController {
 	
 	
 	/**
-	 * »ç¿ëÀÚ ¸®½ºÆ®(json)
+	 * ì‚¬ìš©ì ë¦¬ìŠ¤íŠ¸(json)
 	 * @throws SQLException 
 	 */
 	@RequestMapping(value = "/json", method = RequestMethod.POST)
@@ -59,7 +60,7 @@ public class UserTestController {
 	}
 	
 	/**
-	 * »ç¿ëÀÚ »ó¼¼Á¶È¸
+	 * ì‚¬ìš©ì ìƒì„¸ì¡°íšŒ
 	 * @throws SQLException 
 	 */
 	@RequestMapping(value = "/{seq}", method = RequestMethod.GET)
@@ -73,7 +74,7 @@ public class UserTestController {
 	}
 	
 	/**
-	 * »ç¿ëÀÚ ¼öÁ¤È­¸é
+	 * ì‚¬ìš©ì ìˆ˜ì •í™”ë©´
 	 * @throws SQLException 
 	 */
 	@RequestMapping(value = "/{seq}/update", method = RequestMethod.GET)
@@ -87,7 +88,7 @@ public class UserTestController {
 	}
 	
 	/**
-	 * »ç¿ëÀÚ ¼öÁ¤
+	 * ì‚¬ìš©ì ìˆ˜ì •
 	 * @throws SQLException 
 	 */
 	@RequestMapping(value = "/{seq}/update", method = RequestMethod.POST)
