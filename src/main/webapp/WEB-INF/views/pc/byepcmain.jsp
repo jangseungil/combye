@@ -16,11 +16,23 @@
 <div class="container">
 
 	<div class="row">
+		<div class="col-md-12"></div>
+		<div class="col-md-12">
+			<button type="button" class="btn btn-default active">
+				OS <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
+			</button>
+			
+			<button type="button" class="btn btn-default ">
+			   Menufactor <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+			</button>
+		</div>
+	</div>
+	<div class="row" id="os">
 		<div class="col-md-12">
 			<div class="btn-group" data-toggle="buttons">
 				<h4>h4. Bootstrap heading</h4>
 				<label class="btn btn-primary">
-					<input type="radio" name="os" id="option1" autocomplete="off">windows 7
+					<input type="radio" name="os" id="option2" autocomplete="off">windows 7
 				</label>
 				<label class="btn btn-primary">
 					<input type="radio" name="os" id="option2" autocomplete="off">windows 8
@@ -35,7 +47,7 @@
 		</div>
 	</div>
 
-	<div class="row">
+	<div class="row hidden" id="menufactor">
 		<div class="col-md-12">
 			<div class="btn-group" data-toggle="buttons">
 				<h4>h4. Bootstrap heading</h4>
@@ -48,15 +60,16 @@
 			</div>
 		</div>
 	</div>
-
+	
+	<h4></h4>
+	
 	<div class="row">
-		<div class="col-md-12"></div>
-		<div class="col-md-12 text-left">
-			<button type="button" class="btn btn-default ">
+		<div class="col-md-12">
+			<button type="button" class="btn btn-default" id="priv">
 			  <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>Priv
 			</button>
 			
-			<button type="button" class="btn btn-default ">
+			<button type="button" class="btn btn-default" id="next">
 			   Next<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
 			</button>
 		</div>
@@ -64,9 +77,12 @@
 	
 </div>
 <script type="text/javascript">
-	
-	console.log($("input[name=options]").length);
-	
-	
+	$(document).ready(function() {
+		$("#os").on("click", function() {
+			$.each($("input[name=os]"), function(idx, obj){
+				console.log($(obj).prop("checked"));
+			});
+		});
+	});
 </script>
 </html>
