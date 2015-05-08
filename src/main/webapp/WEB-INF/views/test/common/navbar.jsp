@@ -20,11 +20,11 @@
       <ul class="nav navbar-nav">
         <c:if test="${param.tab eq 'test' or param.tab eq null}">
 	        <li class="active"><a href="/test/user">테스트</a></li>
-	        <li><a href="/test/angular/user">angular테스트</a></li>
+	        <li><a href="/pc">angular테스트</a></li>
         </c:if>
         <c:if test="${param.tab eq 'angulartest'}">
 	        <li><a href="/test/user">테스트</a></li>
-	        <li class="active"><a href="/test/angular/user">angular테스트</a></li>
+	        <li class="active"><a href="/pc">angular테스트</a></li>
         </c:if>
       </ul>
     </div><!-- /.navbar-collapse -->

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ctart.app.test.user.dao.UserTestDao">
+
+    <select id="selectCodeList" resultType="com.ctart.app.test.code.vo.CodeTestVo">
+		SELECT CODE
+			 , GRP_CODE
+			 , CODE_NM
+			 , REF_CODE1
+			 , REF_CODE2
+			 , REF_CODE3
+			 , REG_DATE
+			 , MOD_DATE
+		FROM code
+    </select>
+    
+    <select id="selectUserList" parameterType="com.ctart.app.test.user.vo.UserTestVo" resultType="com.ctart.app.test.user.vo.UserTestVo">
+		SELECT "SEQ"
+			, "NAME"
+		FROM "USER"
+		WHERE 1=1
+		<if test="name != null and name != ''">
+			AND "NAME" LIKE CONCAT('%', #{name}, '%')
+		</if>
+    </select>
+    
+    <select id="selectUser" parameterType="com.ctart.app.test.user.vo.UserTestVo" resultType="com.ctart.app.test.user.vo.UserTestVo">
+		SELECT "SEQ"
+			, "NAME"
+		FROM "USER"
+		WHERE "SEQ" = #{seq}
+    </select>
+    
+    <select id="updateUser" parameterType="com.ctart.app.test.user.vo.UserTestVo" >
+		UPDATE user SET
+			  TYPE = #{type}
+		 	, NAME = #{name}
+		    , SEX = #{sex}
+		  	, BIRTH = #{birth}
+		  	, PHONE = #{phone}
+		  	, ZIPCODE = #{zipcode}
+		  	, ADDRESS = #{address}
+		WHERE SEQ = #{seq}
+    </select>
+    
+    <select id="insertUser" parameterType="com.ctart.app.test.user.vo.UserTestVo">
+    </select>
+    
+</mapper>

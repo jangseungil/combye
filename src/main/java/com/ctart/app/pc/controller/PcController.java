@@ -1,4 +1,4 @@
-package com.ctart.app.test.user.controller;
+package com.ctart.app.pc.controller;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -24,31 +24,31 @@ import com.ctart.app.test.user.vo.UserTestVo;
 
 
 /**
- * 사용자 테스트 컨트롤러
+ * 
  */
 @Controller
-@RequestMapping(value = "test/user")
-public class UserTestController {
+@RequestMapping(value = "pc")
+public class PcController {
 	
-	private static final Logger logger = LoggerFactory.getLogger(UserTestController.class);
+	private static final Logger logger = LoggerFactory.getLogger(PcController.class);
 	
 	@Autowired
 	private UserTestService userTestService;
 	
 	/**
-	 * 사용자 리스트
+	 * 
 	 * @throws SQLException 
 	 */
 	@RequestMapping(value = "", method = RequestMethod.GET)
 	public String selectUserList(Locale locale, Model model, UserTestVo userTestVo) throws SQLException {
 		//List<UserTestVo> userTestVoList = userTestService.selectUserList(userTestVo);
 		//model.addAttribute("userTestVoList", userTestVoList);
-		return "test/user/testuserlist";
+		return "pc/byepcmain";
 	}
 	
 	
 	/**
-	 * 사용자 리스트(json)
+	 * json
 	 * @throws SQLException 
 	 */
 	@RequestMapping(value = "/json", method = RequestMethod.POST)
@@ -58,7 +58,7 @@ public class UserTestController {
 	}
 	
 	/**
-	 * 사용자 상세조회
+	 *
 	 * @throws SQLException 
 	 */
 	@RequestMapping(value = "/{seq}", method = RequestMethod.GET)
@@ -72,7 +72,7 @@ public class UserTestController {
 	}
 	
 	/**
-	 * 사용자 수정화면
+	 * 
 	 * @throws SQLException 
 	 */
 	@RequestMapping(value = "/{seq}/update", method = RequestMethod.GET)
@@ -86,7 +86,7 @@ public class UserTestController {
 	}
 	
 	/**
-	 * 사용자 수정
+	 * 
 	 * @throws SQLException 
 	 */
 	@RequestMapping(value = "/{seq}/update", method = RequestMethod.POST)
