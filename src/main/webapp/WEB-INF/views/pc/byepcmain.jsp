@@ -32,12 +32,11 @@
 		</div>
 	</div>
 	
-	<h5></h5>
-	<h5></h5>
+	<h5>&nbsp;</h5>
 
 	<div class="row text-center" id="os">
 		<div class="col-md-12">
-			<h4>노트북에 설치되어있는 운영체제(OS)를 선택하세요.</h4>
+			<h4>d123</h4>
 			<button type="button" class="btn btn-default">windows 7</button>
 			<button type="button" class="btn btn-default">windows 8</button>
 			<button type="button" class="btn btn-default">windows vista</button>
@@ -49,18 +48,17 @@
 	<div class="row text-center" id="menufactor">
 		<div class="col-md-12">
 			<div class="btn-group" data-toggle="buttons">
-				<h4>제조사를 선택하세요.</h4>
+				<h4>4332</h4>
 				<button type="button" class="btn btn-default">DELL</button>
 				<button type="button" class="btn btn-default">HP</button>
 				<button type="button" class="btn btn-default">SONY</button>
 				<button type="button" class="btn btn-default">SHARP</button>
+				<button type="button" class="btn btn-default">없음</button>
 			</div>
 		</div>
 	</div>
 	
-	<h5></h5>
-	<h5></h5>
-	<h5></h5>
+	<h5>&nbsp;</h5>
 	
 	<div class="row text-center">
 		<div class="col-md-12">
@@ -95,12 +93,51 @@
 			});
 		});
 		
+		var tabArr = [];
+		$.each($("#tabGrp button"), function(idx, obj){
+			tabArr.push($(obj).prop("id"));
+		});
+		
+		console.log(tabArr);
+		
+		
 		$("#priv").click(function() {
-			selectOS(obj);
+			var isActive = false;
+			$.each($("#tabGrp button"), function(idx, obj){
+				console.log($(this)[0]);
+				
+				if($(obj).prop("class").indexOf("active") > 0) {
+					if(idx == 1) {
+						return;
+					}
+				}
+				
+				if(isActive) {
+					console.log($(obj).prop("id"));
+					isActive = false;
+					selectTab(obj);
+					return;
+				}
+				
+				if($(obj).prop("class").indexOf("active") > 0) {
+					isActive = true;
+				}
+			});
 		});
 		
 		$("#next").click(function() {
-			selectOS(obj);
+			var isActive = false;
+			$.each($("#tabGrp button"), function(idx, obj){
+				if(isActive) {
+					isActive = false;
+					selectTab(obj);
+					return;
+				}
+				
+				if($(obj).prop("class").indexOf("active") > 0) {
+					isActive = true;
+				}
+			});
 		});
 		
 		$("#menufactor").hide();
@@ -112,8 +149,6 @@
 		});
 		
 		$(obj).prop("class", "btn btn-default active");
-		
-		console.log($(obj).prop("id"));
 		
 		if($(obj).prop("id") == "tabManu") {
 			$("#os").hide();
