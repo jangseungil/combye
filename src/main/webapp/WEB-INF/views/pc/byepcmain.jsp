@@ -57,6 +57,15 @@
 			</div>
 		</div>
 	</div>
+
+	<div class="row text-center" id="model">
+		<div class="col-md-12">
+			<div class="btn-group" data-toggle="buttons">
+				<h4>model</h4>
+				<input type="text">
+			</div>
+		</div>
+	</div>
 	
 	<h5>&nbsp;</h5>
 	
@@ -98,29 +107,18 @@
 			tabArr.push($(obj).prop("id"));
 		});
 		
-		console.log(tabArr);
-		
-		
 		$("#priv").click(function() {
 			var isActive = false;
 			$.each($("#tabGrp button"), function(idx, obj){
-				console.log($(this)[0]);
-				
 				if($(obj).prop("class").indexOf("active") > 0) {
-					if(idx == 1) {
+					if(idx == 0) {
 						return;
 					}
 				}
 				
-				if(isActive) {
-					console.log($(obj).prop("id"));
-					isActive = false;
-					selectTab(obj);
-					return;
-				}
-				
 				if($(obj).prop("class").indexOf("active") > 0) {
-					isActive = true;
+					selectTab($("#" + tabArr[idx - 1]));
+					return;
 				}
 			});
 		});
@@ -141,6 +139,7 @@
 		});
 		
 		$("#menufactor").hide();
+		$("#model").hide();
 	});
 	
 	function selectTab(obj) {
@@ -151,13 +150,21 @@
 		$(obj).prop("class", "btn btn-default active");
 		
 		if($(obj).prop("id") == "tabManu") {
-			$("#os").hide();
 			$("#menufactor").show();
+			$("#os").hide();
+			$("#model").hide();
 		}
 		
 		if($(obj).prop("id") == "tabOS") {
 			$("#os").show();
 			$("#menufactor").hide();
+			$("#model").hide();
+		}
+		
+		if($(obj).prop("id") == "tabModel") {
+			$("#os").hide();
+			$("#menufactor").hide();
+			$("#model").show();
 		}
 			
 	}
