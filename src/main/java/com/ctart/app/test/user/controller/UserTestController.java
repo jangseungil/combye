@@ -53,6 +53,7 @@ public class UserTestController {
 	 */
 	@RequestMapping(value = "/json", method = RequestMethod.POST)
 	public @ResponseBody List<UserTestVo> selectUserListJSON(@RequestBody UserTestVo userTestVo) throws SQLException {
+		System.out.println("fdfs");
 		List<UserTestVo> userTestVoList = userTestService.selectUserList(userTestVo);
 		return userTestVoList;
 	}

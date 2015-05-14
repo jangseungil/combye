@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ctart.app.auth.dao.AuthDao">
+
+    <select id="selectAuth" parameterType="com.ctart.app.auth.vo.AuthVo" resultType="com.ctart.app.auth.vo.AuthVo">
+		SELECT "NAME"
+			, "ID"
+			, "PASS"
+		FROM "TB_USER"
+		WHERE "ID" = #{id}
+    </select>
+    
+</mapper>

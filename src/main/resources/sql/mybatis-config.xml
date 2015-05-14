@@ -3,5 +3,6 @@
 <configuration>
 	<mappers>
 		<mapper resource="sql/test.xml"/>
+		<mapper resource="sql/auth.xml"/>
 	</mappers>
 </configuration>

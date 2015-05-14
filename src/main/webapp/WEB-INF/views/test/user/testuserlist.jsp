@@ -44,7 +44,7 @@
 		</colgroup>
 		<thead>
 			<tr>
-				<th>SEQ</th>
+				<th>ID</th>
 				<th>TYPE</th>
 				<th>NAME</th>
 				<th>SEX</th>
@@ -59,7 +59,7 @@
 		</thead>
 		<tbody>
 			<tr ng-repeat="userTestVo in users">
-				<td><a href="/test/user/{{userTestVo.seq}}">{{userTestVo.seq}}</a></td>
+				<td><a href="/test/user/{{userTestVo.seq}}">{{userTestVo.id}}</a></td>
 				<td>{{userTestVo.type}}</td>
 				<td>{{userTestVo.name}}</td>
 				<td>{{userTestVo.sex}}</td>
@@ -79,6 +79,14 @@
 </div>
 
 <script type="text/javascript">
+$(function () {
+    var token = $("meta[name='_csrf']").attr("content");
+    var header = $("meta[name='_csrf_header']").attr("content");
+    $(document).ajaxSend(function(e, xhr, options) {
+        xhr.setRequestHeader(header, token);
+    });
+});
+
 //app 선언 app명 helloApp
 var helloApp = angular.module("helloApp", []);
 
@@ -97,6 +105,7 @@ helloApp.controller('CompanyCtrl', ['$scope',  '$http', function ($scope, $http)
 		$http({
 			method: 'POST',
 			url: '/test/user/json',
+			headers: {'${_csrf.headerName}': '${_csrf.token}'},
 			data: {name: $scope.name}
 		})
 		.success(function (data, status, headers, config) {
@@ -104,7 +113,8 @@ helloApp.controller('CompanyCtrl', ['$scope',  '$http', function ($scope, $http)
 			$scope.users = data;
 		})
 		.error(function (data, status, headers, config) {
-			
+			console.log(data);
+			console.log(status);
 		});
 	};
 	
