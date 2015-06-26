@@ -25,8 +25,8 @@
 	<table class="table table-bordered">
 		<tbody>
 			<tr>
-				<th>seq</th>
-				<td>${userTestVo.seq}</td>
+				<th>id</th>
+				<td>${userTestVo.id}</td>
 				<th>type</th>
 				<td>${userTestVo.type}</td>
 			</tr>

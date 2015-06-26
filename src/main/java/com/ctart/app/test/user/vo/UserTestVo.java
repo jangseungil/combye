@@ -4,6 +4,8 @@ package com.ctart.app.test.user.vo;
 public class UserTestVo {
 
 	private long seq;
+	
+	private String id;
 
 	private String type;
 	
@@ -28,8 +30,8 @@ public class UserTestVo {
 	public UserTestVo() {
 	}
 	
-	public UserTestVo(long seq) {
-		this.seq = seq;
+	public UserTestVo(String id) {
+		this.id = id;
 	}
 
 	public long getSeq() {
@@ -118,5 +120,13 @@ public class UserTestVo {
 
 	public void setType(String type) {
 		this.type = type;
+	}
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
 	}
 }

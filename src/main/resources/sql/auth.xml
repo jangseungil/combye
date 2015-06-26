@@ -3,11 +3,11 @@
 <mapper namespace="com.ctart.app.auth.dao.AuthDao">
 
     <select id="selectAuth" parameterType="com.ctart.app.auth.vo.AuthVo" resultType="com.ctart.app.auth.vo.AuthVo">
-		SELECT "NAME"
-			, "ID"
-			, "PASS"
-		FROM "TB_USER"
-		WHERE "ID" = #{id}
+		SELECT NAME
+			, ID
+			, PASS
+		FROM TB_USER
+		WHERE ID = #{id}
     </select>
     
 </mapper>

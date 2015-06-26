@@ -53,7 +53,6 @@ public class UserTestController {
 	 */
 	@RequestMapping(value = "/json", method = RequestMethod.POST)
 	public @ResponseBody List<UserTestVo> selectUserListJSON(@RequestBody UserTestVo userTestVo) throws SQLException {
-		System.out.println("fdfs");
 		List<UserTestVo> userTestVoList = userTestService.selectUserList(userTestVo);
 		return userTestVoList;
 	}
@@ -62,10 +61,10 @@ public class UserTestController {
 	 * 사용자 상세조회
 	 * @throws SQLException 
 	 */
-	@RequestMapping(value = "/{seq}", method = RequestMethod.GET)
-	public String selectUser(@PathVariable("seq") long seq, Model model, HttpServletRequest request, HttpServletResponse response) throws SQLException {
+	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
+	public String selectUser(@PathVariable("id") String id, Model model, HttpServletRequest request, HttpServletResponse response) throws SQLException {
 		
-		UserTestVo userTestVo = userTestService.selectUser(new UserTestVo(seq));
+		UserTestVo userTestVo = userTestService.selectUser(new UserTestVo(id));
 		
 		model.addAttribute("userTestVo", userTestVo);
 		
@@ -76,10 +75,10 @@ public class UserTestController {
 	 * 사용자 수정화면
 	 * @throws SQLException 
 	 */
-	@RequestMapping(value = "/{seq}/update", method = RequestMethod.GET)
-	public String selectUserUpdate(@PathVariable("seq") long seq, Model model, HttpServletRequest request, HttpServletResponse response) throws SQLException {
+	@RequestMapping(value = "/{id}/update", method = RequestMethod.GET)
+	public String selectUserUpdate(@PathVariable("id") String id, Model model, HttpServletRequest request, HttpServletResponse response) throws SQLException {
 		
-		UserTestVo userTestVo = userTestService.selectUser(new UserTestVo(seq));
+		UserTestVo userTestVo = userTestService.selectUser(new UserTestVo(id));
 		
 		model.addAttribute("userTestVo", userTestVo);
 		

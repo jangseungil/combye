@@ -49,7 +49,7 @@
 				<th>NAME</th>
 				<th>SEX</th>
 				<th>BIRTH</th>
-				<th>PHONE</th>
+					<th>PHONE</th>
 				<th>ZIPCODE</th>
 				<th>ADDRESS</th>
 				<th>REG_DATE</th>
@@ -59,7 +59,7 @@
 		</thead>
 		<tbody>
 			<tr ng-repeat="userTestVo in users">
-				<td><a href="/test/user/{{userTestVo.seq}}">{{userTestVo.id}}</a></td>
+				<td><a href="/test/user/{{userTestVo.id}}">{{userTestVo.id}}</a></td>
 				<td>{{userTestVo.type}}</td>
 				<td>{{userTestVo.name}}</td>
 				<td>{{userTestVo.sex}}</td>
@@ -110,6 +110,7 @@ helloApp.controller('CompanyCtrl', ['$scope',  '$http', function ($scope, $http)
 		})
 		.success(function (data, status, headers, config) {
 			//sever로부터 넘어온 json data를 users 객체에 binding
+			console.log(data);
 			$scope.users = data;
 		})
 		.error(function (data, status, headers, config) {
