@@ -61,10 +61,10 @@ public class PcController {
 	 *
 	 * @throws SQLException 
 	 */
-	@RequestMapping(value = "/{seq}", method = RequestMethod.GET)
-	public String selectUser(@PathVariable("seq") long seq, Model model, HttpServletRequest request, HttpServletResponse response) throws SQLException {
+	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
+	public String selectUser(@PathVariable("id") String id, Model model, HttpServletRequest request, HttpServletResponse response) throws SQLException {
 		
-		UserTestVo userTestVo = userTestService.selectUser(new UserTestVo(seq));
+		UserTestVo userTestVo = userTestService.selectUser(new UserTestVo(id));
 		
 		model.addAttribute("userTestVo", userTestVo);
 		
@@ -75,10 +75,10 @@ public class PcController {
 	 * 
 	 * @throws SQLException 
 	 */
-	@RequestMapping(value = "/{seq}/update", method = RequestMethod.GET)
-	public String selectUserUpdate(@PathVariable("seq") long seq, Model model, HttpServletRequest request, HttpServletResponse response) throws SQLException {
+	@RequestMapping(value = "/{id}/update", method = RequestMethod.GET)
+	public String selectUserUpdate(@PathVariable("id") String id, Model model, HttpServletRequest request, HttpServletResponse response) throws SQLException {
 		
-		UserTestVo userTestVo = userTestService.selectUser(new UserTestVo(seq));
+		UserTestVo userTestVo = userTestService.selectUser(new UserTestVo(id));
 		
 		model.addAttribute("userTestVo", userTestVo);
 		
@@ -89,8 +89,8 @@ public class PcController {
 	 * 
 	 * @throws SQLException 
 	 */
-	@RequestMapping(value = "/{seq}/update", method = RequestMethod.POST)
-	public String updateUser(@PathVariable("seq") String seq, @ModelAttribute UserTestVo userTestVo, Model model, HttpServletRequest request, HttpServletResponse response) throws SQLException {
+	@RequestMapping(value = "/{id}/update", method = RequestMethod.POST)
+	public String updateUser(@PathVariable("id") String id, @ModelAttribute UserTestVo userTestVo, Model model, HttpServletRequest request, HttpServletResponse response) throws SQLException {
 		
 		userTestService.updateUser(userTestVo);
 		
